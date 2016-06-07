@@ -20,7 +20,6 @@ package com.nordicapis.kotlin_spark_sample
 import spark.Request
 import spark.Response
 
-SuppressWarnings("unused")
 abstract class Controllable
 {
     public open fun before(request: Request, response: Response): Boolean = true
