@@ -25,9 +25,9 @@ class ContainerComposer : Composable
 {
     public override fun composeApplication(appContainer: MutablePicoContainer)
     {
-        appContainer.addComponent(javaClass)
-        appContainer.addComponent(javaClass)
-        appContainer.addComponent(javaClass)
+        appContainer.addComponent(AuthorizeController::class.java)
+        appContainer.addComponent(TokenController::class.java)
+        appContainer.addComponent(LoginController::class.java)
     }
 
     public override fun composeRequest(container: MutablePicoContainer)

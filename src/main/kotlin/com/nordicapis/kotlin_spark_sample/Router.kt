@@ -24,6 +24,7 @@ import spark.Spark.halt
 import spark.template.velocity.VelocityTemplateEngine
 import java.util.*
 import kotlin.reflect.jvm.java
+import kotlin.reflect.memberFunctions
 
 class Router constructor() : SparkBase()
 {
@@ -40,7 +41,8 @@ class Router constructor() : SparkBase()
             }
 
             // See if the controller class' method is overriding one of Controllable's
-            for (interfaceMethod in this.javaClass.getMethods())
+
+            for (interfaceMethod in Controllable::class.java.methods)
             {
                 if (methodName == interfaceMethod.getName() && // method names match?
                         classMethod.getReturnType() == interfaceMethod.getReturnType() && // method return the same type?
