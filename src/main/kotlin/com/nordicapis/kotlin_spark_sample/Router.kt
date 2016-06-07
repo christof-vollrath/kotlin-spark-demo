@@ -105,7 +105,7 @@ class Router constructor() : SparkBase()
            {
                // Fire the controller's method depending on the HTTP method of the request
                val httpMethod = request.requestMethod().toLowerCase()
-               val method = controllerClass.getMethod(httpMethod, javaClass, javaClass)
+               val method = controllerClass.getMethod(httpMethod, Request::class.java, Response::class.java)
                val result = method.invoke(controller, request, response)
 
                if (result is ControllerResult && result.continueProcessing)
